@@ -52,6 +52,7 @@ lista.addEventListener('click', (e) => {
   if (e.target.closest('.btn-deletar')) {
     item.remove();
     atualizarContador();
+    salvarTarefas();
     return;
   }
 
