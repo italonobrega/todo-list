@@ -17,6 +17,7 @@ form.addEventListener('submit', (e) => {
 
   const li = criarItemTarefa(texto);
   lista.appendChild(li);
+  atualizarContador();
 
   input.value = '';
   input.focus();
@@ -37,4 +38,44 @@ function criarItemTarefa(texto) {
   `;
 
   return li;
+}
+
+// ==========================================
+// CONCLUIR E DELETAR (Event Delegation)
+// ==========================================
+lista.addEventListener('click', (e) => {
+  const item = e.target.closest('.item-tarefa');
+  if (!item) return;
+
+  // Deletar
+  if (e.target.closest('.btn-deletar')) {
+    item.remove();
+    atualizarContador();
+    return;
+  }
+
+  // Concluir
+  if (e.target.closest('.btn-check')) {
+    item.classList.toggle('concluida');
+    atualizarIconeCheck(item);
+    atualizarContador();
+  }
+});
+
+function atualizarIconeCheck(item) {
+  const icone = item.querySelector('.btn-check i');
+  const concluida = item.classList.contains('concluida');
+
+  icone.className = concluida
+    ? 'fa-solid fa-circle-check'
+    : 'fa-regular fa-circle';
+}
+
+// ==========================================
+// CONTADOR
+// ==========================================
+function atualizarContador() {
+  const pendentes = lista.querySelectorAll('.item-tarefa:not(.concluida)').length;
+  const contador = document.querySelector('.contador');
+  contador.textContent = `${pendentes} pendente${pendentes !== 1 ? 's' : ''}`;
 }
