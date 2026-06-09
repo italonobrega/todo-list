@@ -2,26 +2,28 @@
    VARIÁVEIS
    ========================================== */
 :root {
-  --color-bg:          #F0F2F5;
-  --color-surface:     #FFFFFF;
-  --color-primary:     #4F46E5;
-  --color-primary-hover: #3730A3;
-  --color-danger:      #EF4444;
-  --color-danger-hover: #DC2626;
-  --color-success:     #22C55E;
-  --color-text:        #111827;
-  --color-text-muted:  #6B7280;
-  --color-border:      #E5E7EB;
-  --color-concluida:   #9CA3AF;
+  --color-bg: #f0f2f5;
+  --color-surface: #ffffff;
+  --color-primary: #4f46e5;
+  --color-primary-hover: #3730a3;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-success: #22c55e;
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-concluida: #9ca3af;
 
-  --font-sans: 'Segoe UI', system-ui, sans-serif;
+  --font-sans: "Segoe UI", system-ui, sans-serif;
   --radius: 12px;
 }
 
 /* ==========================================
    RESET
    ========================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -105,7 +107,9 @@ button {
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius);
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .form-tarefa input::placeholder {
@@ -127,7 +131,9 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
   flex-shrink: 0;
 }
 
@@ -169,7 +175,9 @@ button {
 .btn-check {
   font-size: 1.2rem;
   color: var(--color-border);
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
   flex-shrink: 0;
 }
 
@@ -181,7 +189,9 @@ button {
 .btn-deletar {
   font-size: 0.9rem;
   color: var(--color-text-muted);
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
   flex-shrink: 0;
 }
 
@@ -194,8 +204,8 @@ button {
    TAREFA CONCLUÍDA
    ========================================== */
 .item-tarefa.concluida {
-  background-color: #F9FAFB;
-  border-color: #F3F4F6;
+  background-color: #f9fafb;
+  border-color: #f3f4f6;
 }
 
 .item-tarefa.concluida .texto-tarefa {
