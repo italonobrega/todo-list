@@ -18,6 +18,7 @@ form.addEventListener('submit', (e) => {
   const li = criarItemTarefa(texto);
   lista.appendChild(li);
   atualizarContador();
+  salvarTarefas();
 
   input.value = '';
   input.focus();
@@ -59,6 +60,7 @@ lista.addEventListener('click', (e) => {
     item.classList.toggle('concluida');
     atualizarIconeCheck(item);
     atualizarContador();
+    salvarTarefas();
   }
 });
 
@@ -79,3 +81,41 @@ function atualizarContador() {
   const contador = document.querySelector('.contador');
   contador.textContent = `${pendentes} pendente${pendentes !== 1 ? 's' : ''}`;
 }
+
+// ==========================================
+// LOCALSTORAGE — SALVAR
+// ==========================================
+function salvarTarefas() {
+  const itens = lista.querySelectorAll('.item-tarefa');
+
+  const tarefas = Array.from(itens).map((item) => ({
+    texto: item.querySelector('.texto-tarefa').textContent,
+    concluida: item.classList.contains('concluida'),
+  }));
+
+  localStorage.setItem('tarefas', JSON.stringify(tarefas));
+}
+
+// ==========================================
+// LOCALSTORAGE — CARREGAR
+// ==========================================
+function carregarTarefas() {
+  const salvas = localStorage.getItem('tarefas');
+  if (!salvas) return;
+
+  const tarefas = JSON.parse(salvas);
+
+  tarefas.forEach((tarefa) => {
+    const li = criarItemTarefa(tarefa.texto);
+    if (tarefa.concluida) {
+      li.classList.add('concluida');
+      atualizarIconeCheck(li);
+    }
+    lista.appendChild(li);
+  });
+
+  atualizarContador();
+}
+
+// Carrega as tarefas assim que a página abre
+carregarTarefas();
