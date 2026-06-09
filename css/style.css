@@ -1,0 +1,208 @@
+/* ==========================================
+   VARIÁVEIS
+   ========================================== */
+:root {
+  --color-bg:          #F0F2F5;
+  --color-surface:     #FFFFFF;
+  --color-primary:     #4F46E5;
+  --color-primary-hover: #3730A3;
+  --color-danger:      #EF4444;
+  --color-danger-hover: #DC2626;
+  --color-success:     #22C55E;
+  --color-text:        #111827;
+  --color-text-muted:  #6B7280;
+  --color-border:      #E5E7EB;
+  --color-concluida:   #9CA3AF;
+
+  --font-sans: 'Segoe UI', system-ui, sans-serif;
+  --radius: 12px;
+}
+
+/* ==========================================
+   RESET
+   ========================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   GLOBAL
+   ========================================== */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+}
+
+/* ==========================================
+   CARD
+   ========================================== */
+.card {
+  background-color: var(--color-surface);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ==========================================
+   HEADER DO CARD
+   ========================================== */
+.card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.card-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.contador {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================
+   FORMULÁRIO
+   ========================================== */
+.form-tarefa {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.form-tarefa input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.97rem;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-tarefa input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-tarefa input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-tarefa button {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius);
+  background-color: var(--color-primary);
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.form-tarefa button:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   LISTA DE TAREFAS
+   ========================================== */
+#lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.item-tarefa {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-surface);
+  transition: box-shadow 0.2s;
+}
+
+.item-tarefa:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.texto-tarefa {
+  flex: 1;
+  font-size: 0.97rem;
+  color: var(--color-text);
+}
+
+.btn-check {
+  font-size: 1.2rem;
+  color: var(--color-border);
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-check:hover {
+  color: var(--color-success);
+  transform: scale(1.1);
+}
+
+.btn-deletar {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  transition: color 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-deletar:hover {
+  color: var(--color-danger);
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   TAREFA CONCLUÍDA
+   ========================================== */
+.item-tarefa.concluida {
+  background-color: #F9FAFB;
+  border-color: #F3F4F6;
+}
+
+.item-tarefa.concluida .texto-tarefa {
+  text-decoration: line-through;
+  color: var(--color-concluida);
+}
+
+.item-tarefa.concluida .btn-check {
+  color: var(--color-success);
+}
