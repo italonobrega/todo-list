@@ -206,3 +206,34 @@ button {
 .item-tarefa.concluida .btn-check {
   color: var(--color-success);
 }
+
+/* ==========================================
+   FILTROS
+   ========================================== */
+.filtros {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-filtro {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+  border: 1.5px solid transparent;
+  transition: all 0.2s;
+}
+
+.btn-filtro:hover {
+  color: var(--color-primary);
+}
+
+.btn-filtro.ativo {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}

@@ -13,7 +13,6 @@
   <body>
     <main>
       <div class="card">
-
         <header class="card-header">
           <h1>Minhas Tarefas</h1>
           <span class="contador">0 pendentes</span>
@@ -31,8 +30,15 @@
           </button>
         </form>
 
-        <ul id="lista-tarefas">
+        <div class="filtros">
+          <button class="btn-filtro ativo" data-filtro="todas">Todas</button>
+          <button class="btn-filtro" data-filtro="ativas">Ativas</button>
+          <button class="btn-filtro" data-filtro="concluidas">
+            Concluídas
+          </button>
+        </div>
 
+        <ul id="lista-tarefas">
           <!-- Exemplos visuais — serão removidos quando o JS entrar -->
           <!-- <li class="item-tarefa">
             <button class="btn-check" aria-label="Concluir tarefa">
@@ -53,9 +59,7 @@
               <i class="fa-solid fa-trash"></i>
             </button>
           </li> -->
-
         </ul>
-
       </div>
     </main>
     <script src="js/main.js"></script>

@@ -120,3 +120,37 @@ function carregarTarefas() {
 
 // Carrega as tarefas assim que a página abre
 carregarTarefas();
+
+// ==========================================
+// FILTROS
+// ==========================================
+const botoesFiltro = document.querySelectorAll('.btn-filtro');
+
+botoesFiltro.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    botoesFiltro.forEach((b) => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    filtrar(btn.dataset.filtro);
+  });
+});
+
+function filtrar(tipo) {
+  const itens = lista.querySelectorAll('.item-tarefa');
+
+  itens.forEach((item) => {
+    switch (tipo) {
+      case 'ativas':
+        item.style.display = item.classList.contains('concluida')
+          ? 'none'
+          : 'flex';
+        break;
+      case 'concluidas':
+        item.style.display = item.classList.contains('concluida')
+          ? 'flex'
+          : 'none';
+        break;
+      default:
+        item.style.display = 'flex';
+    }
+  });
+}
